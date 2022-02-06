@@ -1,30 +1,21 @@
-import React from "react"; 
+import React, { useState } from "react";
+import { imageUrls } from "./PhotoSelector";
+import { PhotoSelector } from "./PhotoSelector";
+import { PhotoDisplayer } from "./PhotoDisplayer";
 import "./PhotoViewer.css";
 
-export function PhotoViewer({ src }) {   
-    return (                
-        <div className="main-image">            
-            <img className="image" src= {src}></img>
-        </div>
-    );
+
+
+export function PhotoViewer() {
+
+    const [currentUrl, setCurrentUrl] = useState(imageUrls[0]) 
+
+    return <div>
+    <PhotoDisplayer currentUrl={currentUrl} />
+    <PhotoSelector
+        imageUrls={imageUrls}
+        currentUrl={currentUrl}
+        setCurrentUrl={setCurrentUrl}
+    />
+    </div>
 }
-
-const brokenImages = [
-    1, 24, 32, 36, 44, 47
-];
-
-function getImageUrls() {
-    const urls = [];
-
-    for (let i = 0; i < 50; i++) {
-        if (!brokenImages.includes(i)) {
-            const imageNumberString = i.toString().padStart(2, '0');
-            urls.push(`https://picsum.photos/id/6${imageNumberString}/1600/900.jpg`)
-        }
-    }
-
-    return urls;
-}
-
-export const imageUrls = getImageUrls();
-

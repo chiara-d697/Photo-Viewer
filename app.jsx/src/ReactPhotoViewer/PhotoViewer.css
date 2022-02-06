@@ -5,6 +5,7 @@
 .main-image {
     display: flex;
     justify-content: center;
+    padding: 2em;
 }
 
 .image {
@@ -15,27 +16,35 @@
 
 .image-selector {
     display: flex;
-    flex-direction: column;
     box-sizing: border-box;
-    border: 1px solid red;   
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
-.image-thumbnail {
-    padding: 1em;
+.image-thumbnail-container {
+    padding: 0.25em;
     box-sizing: border-box;
     display:flex;
-    flex-direction: column;
     flex-wrap: wrap;
-  
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.image-thumbnail {
+    border-radius: 0;
+
+}
+
+.image-thumbnail.selected {
+    border: 4px solid yellow;
+    opacity: 50%;
+}
+
+body {
+    background-color: white;
+    margin: 2em;
 }
 
 
-@media (min-width:200px) {
-    .image-thumbnail{ 
-        width: calc((100% - 3.5em)/3);
-    }  
-  }
 
 
